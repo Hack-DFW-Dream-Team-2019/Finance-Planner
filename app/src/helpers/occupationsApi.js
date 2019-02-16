@@ -1,4 +1,4 @@
-import Axios from 'Axios';
+import Axios from 'axios';
 
 function getOccupationSalary(occupation_code, year="2018") {
   Axios.get('https://api.bls.gov/publicAPI/v1/timeseries/data/LAUCN040010000000005',
