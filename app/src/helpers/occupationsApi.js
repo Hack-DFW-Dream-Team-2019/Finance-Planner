@@ -28,6 +28,16 @@ const occupationsApi = {
 
     var avg = sum/data.length;
     return avg;
+  },
+
+  getOccupationSalaries: function (data, year="2018") {
+    let salaryArray = [];
+    data.forEach(function (salaryData) {
+      if (salaryData.year === year) {
+        salaryArray.push(salaryData.value);
+      }
+    });
+    return salaryArray;
   }
 
 }
