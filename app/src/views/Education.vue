@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div style="height: 100%;">
         <div class="sub-nav">
           <h3>Education</h3>
@@ -12,17 +11,6 @@
         <div class="content">
           <router-view></router-view>
         </div>
-||||||| merged common ancestors
-    <div>
-        <p>Hello this is the education screen</p>
-
-        <button type="button" @click="testing()" name="button"></button>
-=======
-    <div>
-        <p>Annual average salary for this occupation: {{average}}</p>
-
-        <button type="button" @click="getOccupationData()" name="button"></button>
->>>>>>> data-manipulation
     </div>
 </template>
 
