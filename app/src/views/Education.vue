@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import getSalary from '../helpers/occupationsApi.js'
+import occupationsApi from '../helpers/occupationsApi.js'
 export default {
     data: function() {
       return{
@@ -17,7 +17,7 @@ export default {
     },
     methods: {
       testing: function(){
-        getSalary(this.occupation_code, this.year)
+        occupationsApi.getOccupationData(this.occupation_code, this.year)
       }
     }
 }
