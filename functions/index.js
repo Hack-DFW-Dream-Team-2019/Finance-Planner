@@ -6,6 +6,9 @@ const functions = require('firebase-functions');
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.getOccupationSalary = functions.https.onRequest((request, response) => {
+ let occupation_code = request.query.occupation_code;
+ let year = request.query.year;
+
  let results = axios.get('https://api.bls.gov/publicAPI/v1/timeseries/data/LAUCN040010000000005',
    {
      params: {
