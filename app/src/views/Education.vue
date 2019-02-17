@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Hello this is the education screen</p>
+        <p>Annual average salary for this occupation: {{average}}</p>
 
         <button type="button" @click="getOccupationData()" name="button"></button>
     </div>
@@ -11,17 +11,18 @@ import occupationsApi from '../helpers/occupationsApi.js'
 export default {
     data: function() {
       return{
-        occupation_code: '',
-        year: '',
+        occupation_code: null,
+        year: "2018",
+        average:""
       }
     },
     methods: {
-      getOccupationData: function(){
-        let rawData = occupationsApi.getOccupationData(this.occupation_code, this.year);
-        let salaries = occupationsApi.getOccupationSalary(rawData);
-        let averageSalary = occupationsApi.calcAverageSalary(salaries);
-        console.log(averageSalary);
-        return averageSalary;
+      getOccupationData: async function(){
+        let avg = this.average
+        await occupationsApi.getAverageSalary(this.occupation_code, this.year).then(function (response) {
+          avg = response;
+        });
+        this.average = avg
       }
     }
 }

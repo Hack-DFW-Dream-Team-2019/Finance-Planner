@@ -7,9 +7,8 @@ const functions = require('firebase-functions');
 //
 exports.getOccupationSalary = functions.https.onRequest((request, response) => {
  let occupation_code = request.query.occupation_code;
- let year = request.query.year;
- let url = `https://api.bls.gov/publicAPI/v1/timeseries/data/LAUCN040010000000005`;
- url+= `?occupation_code=${occupation_code}&startyear=${year}&endyear=${year}`
+ let url = `https://api.bls.gov/publicAPI/v2/timeseries/data/LAUCN040010000000005`;
+ url+= `?registrationkey=cfe86e6b43ee4925bcbc80443cd0fcad&occupation_code=${occupation_code}`
  let options = {
   url: url
   };
