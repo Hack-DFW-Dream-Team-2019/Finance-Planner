@@ -1,4 +1,4 @@
-{
+export default {
    "Management Occupations": {
       "occupation_code": 110000
    },

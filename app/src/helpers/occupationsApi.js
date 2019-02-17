@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 const occupationsApi = {
 
-  getAverageSalary: function (occupation_code="111021", year="2018") {
+  getAverageSalary: function (occupation_code, year) {
     let data = Axios.get('http://us-central1-finance-planner-54bcf.cloudfunctions.net/getOccupationSalary',
       {
         params: {
