@@ -2,7 +2,7 @@
     <div>
         <p>Hello this is the education screen</p>
 
-        <button type="button" @click="testing()" name="button"></button>
+        <button type="button" @click="getOccupationData()" name="button"></button>
     </div>
 </template>
 
@@ -16,8 +16,12 @@ export default {
       }
     },
     methods: {
-      testing: function(){
-        occupationsApi.getOccupationData(this.occupation_code, this.year)
+      getOccupationData: function(){
+        let rawData = occupationsApi.getOccupationData(this.occupation_code, this.year);
+        let salaries = occupationsApi.getOccupationSalary(rawData);
+        let averageSalary = occupationsApi.calcAverageSalary(salaries);
+        console.log(averageSalary);
+        return averageSalary;
       }
     }
 }
