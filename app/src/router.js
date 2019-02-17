@@ -5,7 +5,8 @@ import Simulation from './views/Simulation.vue'
 import EducationIntroduction from './views/EducationIntroduction.vue'
 import EducationFinance from './views/EducationFinance.vue'
 import EducationLoans from './views/EducationLoans.vue'
-
+import virtual from './views/SimulationVirtual.vue'
+import real from './views/SimulationReal.vue'
 
 Vue.use(Router)
 
@@ -15,6 +16,7 @@ export default new Router({
   routes: [
     {
       path: '/education',
+      redirect: '/education/introduction',
       name: 'Education',
       component: Education,
       children: [
@@ -39,9 +41,23 @@ export default new Router({
       ]
     },
     {
-      path: '/simulation',
+      path: '/calculator',
       name: 'Simulation',
-      component: Simulation
+      component: Simulation,
+      children: [
+        {
+          // UserProfile will be rendered inside User's <router-view>
+          // when /user/:id/profile is matched
+          path: 'simulation',
+          component: virtual
+        },
+        {
+          // UserPosts will be rendered inside User's <router-view>
+          // when /user/:id/posts is matched
+          path: 'real',
+          component: real
+        },
+      ]
     }
   ]
 })

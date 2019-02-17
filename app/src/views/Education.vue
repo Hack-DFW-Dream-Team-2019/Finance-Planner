@@ -1,8 +1,16 @@
 <template>
-    <div>
-        <p>Hello this is the education screen</p>
-
-        <button type="button" @click="testing()" name="button"></button>
+    <div style="height: 100%;">
+        <div class="sub-nav">
+          <h3>Education</h3>
+          <ul>
+            <li><router-link to="/education/introduction">Introduction</router-link></li>
+            <li><router-link to="/education/finance">Finance 101</router-link></li>
+            <li><router-link to="/education/loans">Loans</router-link></li>
+          </ul>
+        </div>
+        <div class="content">
+          <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -24,27 +32,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .education-side-nav{
-		padding-left: 50px;
-		position: absolute;
-		padding-top: 20px;
-		text-align: left;
-		height: 100%;
-		background-color:#334452;
-		width: 250px;
-	}
 
-	.education-side-nav a {
-		color: white;
-	}
-    .content {
-        margin-left: 200px;
-    }
+   .sub-nav{
+     position: absolute;
+     width: 160px;
+     height: 100%;
+     background: #334452;
+     padding: 40px 20px;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.10);
 
-	.education-title{
-		color: white;
-		margin-bottom: 75px;
-	}
+     h3{
+       font-size: 20px;
+       color: white;
+       margin-bottom: 60px;
+     }
+
+     ul{
+       list-style: none;
+       padding: 0;
+       color: white
+     }
+
+     li{
+       padding: 5px 0;
+     }
+
+     a{
+       color: white;
+       text-decoration: none;
+       font-size: .9rem;
+     }
+   }
+
+   .content{
+     margin-left: 160px;
+   }
 
 
 </style>
